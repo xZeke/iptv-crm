@@ -1,0 +1,69 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+	<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Customer:</h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'update_customer' customer.id %}">Update Customer</a>
+			<a class="btn btn-outline-danger  btn-sm btn-block" style="margin-bottom: 10px" href="{% url 'delete_customer' customer.id %}">Delete Customer</a>
+            <form class = "form-inline" action="" method="POST">
+            {% csrf_token %}
+            {{form}}
+            <input class="btn btn-info" type="submit" name="Submit">
+                </form>
+
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Contact Information</h5>
+			<hr>
+			<p><b>Name:</b> {{customer.name}} </p>
+			<p><b>Account Name:</b> {{customer.account_name}}</p>
+            <p><b>Payment Name:</b> {{customer.payment_name}}</p>
+            <p><b>Address:</b> {{customer.address}}</p>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Customer Information</h5>
+			<hr>
+			<p><b>Customer Since: </b>{{customer.customer_since}}</p>
+            <p><b>Communicate Via: </b>{{customer.communication}}</p>
+            <p><b>Referral: </b>{{customer.referal}}</p>
+            <p><b>Notes: </b>{{customer.notes}}</p>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Number of Boxes</th>
+					<th>Server(s)</th>
+					<th>Mac Address</th>
+					<th>Date Expires</th>
+				</tr>
+
+                <tr>
+                    <td>{{customer.number_of_boxes}}</td>
+                    <td>{{customer.server}}</td>
+                    <td>{{customer.mac_address}}</td>
+                    <td>{{customer.expires}}</td>
+                </tr>
+
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+
+{% block content%}
+
+{%  include 'accounts/status.html' %}
+
+<br>
+
+<div class="row">
+  <div class="col">
+    <h5>CUSTOMERS:</h5>
+    <hr>
+    <div class="card card-body">
+      <div class="row row-cols-2">
+        <div class="col">
+          <a class ="btn btn-primary btn-block" href="{% url 'new_customer' %}">Create Customer</a>
+        </div>
+        <div class="col">
+          <form class="d-flex" method="get">
+            {{myFilter.form}}
+            <!--<input class="form-control me-2" type="search" placeholder="Search Customer" aria-label="Search">-->
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+      <table class="table table-sm">
+        <tr>
+          <th></th>
+          <th>Customer</th>
+          <th>Payment Name</th>
+          <th>Customer Since</th>
+          <th>Days until Expiry</th>
+
+        </tr>
+
+        {% for i in customers %}
+        <tr>
+          <td><a class="btn btn-sm btn-info" href="{% url 'customer' i.id %}">View</a></td>
+          <td>{{i.name}}</td>
+          <td>{{i.payment_name}}</td>
+          <td>{{i.customer_since}}</td>
+          <td>{{i.expiration}}</td>
+    
+        </tr>
+        {% endfor %}
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock content%}

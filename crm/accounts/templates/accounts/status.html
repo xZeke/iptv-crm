@@ -1,0 +1,55 @@
+{% load static %}
+<head>
+
+	<link href="{% static '/css/main.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+<br>
+
+<div class="row">
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="total-orders">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Total Customers</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{total_customers}}</h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="orders-delivered">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Customers to Remind</h5>
+			  	</div>
+			  	<div class="card-body">
+			    	<h3 class="card-title">{{total_remind}}</h3>
+					<a class ="btn btn-dark btn-sm btn-block" href="{% url 'remind_customer' %}">VIEW</a>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col">
+		<div class="col-md">
+			<div class="card text-center text-white  mb-3" id="orders-pending">
+			  	<div class="card-header">
+			  		<h5 class="card-title">Servers</h5>
+			  	</div>
+			  	<div class="card-body">
+					<a class ="btn btn-dark btn-sm btn-block" href="http://billing.cod123.biz/login.php" target="_blank" rel="noopener noreferrer"><b>COD 1</b></a>
+					<a class ="btn btn-dark btn-sm btn-block" href="hhttp://new.cod123.biz:88/billing/login.php" target="_blank" rel="noopener noreferrer"><b>COD 2</b> (New COD)</a>
+					<a class ="btn btn-dark btn-sm btn-block" href="http://cod3.biz:88/billing/login.php" target="_blank" rel="noopener noreferrer"><b>COD 3</b></a>
+					<a class ="btn btn-dark btn-sm btn-block" href="http://cod4.biz:88/billing/login.php" target="_blank" rel="noopener noreferrer"><b>COD 4</b></a>
+					<a class ="btn btn-dark btn-sm btn-block" href="http://cod41.biz:88/billing/login.php" target="_blank" rel="noopener noreferrer"><b>COD 5</b> (COD 41)</a>
+					
+			    	<h3 class="card-title"></h3>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
